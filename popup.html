@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YaXman取关查询</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="header">
+        <img class="logo" src="logo.svg" alt="YaXman">
+        <div class="title-block">
+          <div class="title-row">
+            <h1>YaXman取关查询</h1>
+            <span class="version">v1.0.0</span>
+          </div>
+          <p>互关守望中</p>
+        </div>
+      </header>
+
+      <section class="stats-grid" aria-label="账号统计">
+        <article class="stat-card">
+          <span class="stat-label">已观察互关</span>
+          <strong id="mutualCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">取关监测数</span>
+          <strong id="unfollowCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">最后更新</span>
+          <strong id="lastUpdated">未检测</strong>
+        </article>
+      </section>
+
+      <section class="records-section">
+        <div class="section-heading">
+          <h2>历史取关记录</h2>
+          <span id="recordHint">暂无记录</span>
+        </div>
+        <div id="recordsList" class="records-list" role="list"></div>
+      </section>
+
+      <section class="actions" aria-label="操作">
+        <button id="manualCheck" class="primary-button" type="button">手动检测</button>
+        <button id="clearRecords" class="ghost-button" type="button">清空记录</button>
+      </section>
+
+      <p id="statusText" class="status-text" role="status"></p>
+      <footer>作者：鸦YAYA（@anycanv）</footer>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

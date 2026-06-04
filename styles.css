@@ -1,0 +1,355 @@
+#yaxman-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  z-index: 2147483646;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(220px, calc(100vw - 32px));
+  min-height: 48px;
+  padding: 8px 13px 8px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.92), rgba(118, 75, 162, 0.92));
+  box-shadow: 0 16px 38px rgba(30, 17, 54, 0.28);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+  font: 600 13px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+#yaxman-widget:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(30, 17, 54, 0.34);
+}
+
+#yaxman-widget.is-busy .yaxman-widget-logo {
+  animation-duration: 900ms;
+}
+
+.yaxman-widget-logo {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  animation: yaxmanLogoBounce 3.2s ease-in-out infinite;
+}
+
+.yaxman-widget-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.yaxman-widget-badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  color: #4c275d;
+  background: #ffd76a;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(38, 20, 64, 0.26);
+}
+
+.yaxman-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 82px;
+  z-index: 2147483647;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.96), rgba(118, 75, 162, 0.96));
+  box-shadow: 0 18px 42px rgba(30, 17, 54, 0.32);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  transform: translateX(18px) translateY(6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  font: 600 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+.yaxman-toast.is-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+#yaxman-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 84px;
+  z-index: 2147483646;
+  width: min(360px, calc(100vw - 32px));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.94), rgba(118, 75, 162, 0.94));
+  box-shadow: 0 22px 54px rgba(30, 17, 54, 0.38);
+  backdrop-filter: blur(18px);
+  font: 500 13px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+#yaxman-panel[hidden] {
+  display: none;
+}
+
+.yaxman-panel-head,
+.yaxman-panel-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px;
+}
+
+.yaxman-panel-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.yaxman-panel-brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.yaxman-panel-brand strong,
+.yaxman-panel-brand span {
+  display: block;
+}
+
+.yaxman-panel-brand strong {
+  font-size: 14px;
+}
+
+.yaxman-panel-brand span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+.yaxman-panel-close {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.yaxman-panel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 0 12px 10px;
+}
+
+.yaxman-panel-stats div {
+  min-width: 0;
+  padding: 9px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.yaxman-panel-stats span,
+.yaxman-panel-stats strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.yaxman-panel-stats span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 11px;
+}
+
+.yaxman-panel-stats strong {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.yaxman-panel-records {
+  display: grid;
+  gap: 7px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 0 12px;
+}
+
+.yaxman-panel-record,
+.yaxman-panel-empty {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.yaxman-panel-record {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.yaxman-panel-record:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.yaxman-panel-record img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.yaxman-panel-record span,
+.yaxman-panel-record strong,
+.yaxman-panel-record em {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.yaxman-panel-record em,
+.yaxman-panel-record time {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 11px;
+  font-style: normal;
+}
+
+.yaxman-panel-empty {
+  padding: 22px 12px;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.yaxman-panel-actions button {
+  min-height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  font: inherit;
+}
+
+.yaxman-panel-check {
+  flex: 1 1 auto;
+}
+
+.yaxman-panel-popup {
+  flex: 0 0 auto;
+  padding: 0 10px;
+}
+
+.yaxman-panel-actions button:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+#yaxman-scan-box {
+  position: fixed;
+  right: 20px;
+  bottom: 146px;
+  z-index: 2147483647;
+  display: grid;
+  gap: 10px;
+  width: min(340px, calc(100vw - 32px));
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.96), rgba(118, 75, 162, 0.96));
+  box-shadow: 0 20px 48px rgba(30, 17, 54, 0.36);
+  backdrop-filter: blur(18px);
+  font: 600 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+#yaxman-scan-box.is-error {
+  background: linear-gradient(135deg, rgba(190, 70, 93, 0.96), rgba(118, 75, 162, 0.96));
+}
+
+.yaxman-scan-text {
+  word-break: break-word;
+}
+
+.yaxman-scan-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.yaxman-scan-actions button {
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  font: inherit;
+}
+
+#yaxman-scan-box:not(.is-paused) .yaxman-scan-continue {
+  opacity: 0.52;
+  pointer-events: none;
+}
+
+@keyframes yaxmanLogoBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 520px) {
+  #yaxman-widget {
+    right: 12px;
+    bottom: 14px;
+  }
+
+  .yaxman-toast {
+    right: 12px;
+    bottom: 74px;
+  }
+
+  #yaxman-panel {
+    right: 12px;
+    bottom: 76px;
+  }
+
+  #yaxman-scan-box {
+    right: 12px;
+    bottom: 138px;
+  }
+}
